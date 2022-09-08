@@ -19,7 +19,10 @@ const { frontmatter } = Astro.props;
   <Header />
   <Breadcrumb />
   <main id="main-content">
-    <section id="about" class="app-prose mb-28 max-w-app prose-img:border-0">
+    <section
+      id="about"
+      class="app-prose max-w-app prose-h2:mt-[2.6em] prose-h3:mt-[2em] prose-h4:mt-[2em] prose-p:my-3 prose-pre:leading-[1.6] prose-ol:my-3 prose-ul:my-3 prose-li:my-0 prose-img:border-0 mb-28 text-inherit"
+    >
       <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
       <slot />
     </section>

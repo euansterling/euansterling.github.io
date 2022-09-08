@@ -15,6 +15,8 @@ import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
 
+import Comments from "@/components/Comments";
+
 export interface Props {
   post: CollectionEntry<"blog">;
   posts: CollectionEntry<"blog">[];
@@ -88,14 +90,14 @@ const nextPost =
   <main
     id="main-content"
     class:list={[
-      "mx-auto w-full max-w-app px-4 pb-12",
+      "max-w-app mx-auto w-full px-4 pb-12",
       { "mt-8": !SITE.showBackButton },
     ]}
     data-pagefind-body
   >
     <h1
       transition:name={slugifyStr(title)}
-      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
+      class="text-accent inline-block text-2xl font-bold sm:text-3xl"
     >
       {title}
     </h1>
@@ -106,7 +108,7 @@ const nextPost =
     </div>
     <article
       id="article"
-      class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
+      class="app-prose max-w-app prose-h2:mt-[2.6em] prose-h3:mt-[2em] prose-h4:mt-[2em] prose-p:my-3 prose-pre:bg-(--shiki-light-bg) prose-pre:leading-[1.6] dark:prose-pre:bg-(--shiki-dark-bg) prose-ol:my-3 prose-ul:my-3 prose-li:my-0 mx-auto mt-8 text-inherit"
     >
       <Content />
     </article>
@@ -115,13 +117,16 @@ const nextPost =
 
     <EditPost class="sm:hidden" {hideEditPost} {post} />
 
-    <ul class="mt-4 mb-8 sm:my-8">
+    <ul class="mb-8 mt-4 sm:my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
     </ul>
 
     <BackToTopButton />
 
     <ShareLinks />
+
+    <!-- Comments 컴포넌트 추가 -->
+    <Comments client:only="react" />
 
     <hr class="my-6 border-dashed" />
 
@@ -136,7 +141,7 @@ const nextPost =
             <IconChevronLeft class="inline-block flex-none rtl:rotate-180" />
             <div>
               <span>Previous Post</span>
-              <div class="text-sm text-accent/85">{prevPost.title}</div>
+              <div class="text-accent/85 text-sm">{prevPost.title}</div>
             </div>
           </a>
         )
@@ -149,7 +154,7 @@ const nextPost =
           >
             <div>
               <span>Next Post</span>
-              <div class="text-sm text-accent/85">{nextPost.title}</div>
+              <div class="text-accent/85 text-sm">{nextPost.title}</div>
             </div>
             <IconChevronRight class="inline-block flex-none rtl:rotate-180" />
           </a>
@@ -270,4 +275,7 @@ const nextPost =
   document.addEventListener("astro:after-swap", () =>
     window.scrollTo({ left: 0, top: 0, behavior: "instant" })
   );
+
+  /* remark-collapse 에서 open 속성 미지원하여 추가 -- 포스트 로드시 TOC 열림 */
+  document.querySelector("details").setAttribute("open", "");
 </script>

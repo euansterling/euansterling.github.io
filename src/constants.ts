@@ -9,6 +9,8 @@ import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
 import { SITE } from "@/config";
 
+import type { GiscusProps } from "@giscus/react";
+
 interface Social {
   name: string;
   href: string;
@@ -19,25 +21,25 @@ interface Social {
 export const SOCIALS: Social[] = [
   {
     name: "GitHub",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://github.com/euansterling",
     linkTitle: `${SITE.title} on GitHub`,
     icon: IconGitHub,
   },
   {
     name: "X",
-    href: "https://x.com/username",
+    href: "https://x.com/euansterlinglee",
     linkTitle: `${SITE.title} on X`,
     icon: IconBrandX,
   },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/username/",
-    linkTitle: `${SITE.title} on LinkedIn`,
-    icon: IconLinkedin,
-  },
+  // {
+  //   name: "LinkedIn",
+  //   href: "https://www.linkedin.com/in/username/",
+  //   linkTitle: `${SITE.title} on LinkedIn`,
+  //   icon: IconLinkedin,
+  // },
   {
     name: "Mail",
-    href: "mailto:yourmail@gmail.com",
+    href: "mailto:euan.sterling.lee@gmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
     icon: IconMail,
   },
@@ -81,3 +83,18 @@ export const SHARE_LINKS: Social[] = [
     icon: IconMail,
   },
 ] as const;
+
+export const GISCUS: GiscusProps = {
+  repo: "euansterling/euansterling.github.io",
+  repoId: "R_kgDOO3oMOw",
+  category: "Comments",
+  categoryId: "DIC_kwDOO3oMO84Crntq",
+  mapping: "pathname",
+  // term: "",
+  strict: "1",
+  reactionsEnabled: "1",
+  emitMetadata: "0",
+  inputPosition: "bottom",
+  lang: "en",
+  loading: "lazy",
+};
