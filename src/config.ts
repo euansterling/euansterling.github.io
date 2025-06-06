@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://euansterling.github.io/", // replace this with your deployed domain
   author: "Euan Ster. Lee",
   profile: "https://github.com/euansterling/",
-  desc: "",
+  desc: "세상을 벗어난 마음으로(出世之心) 세상에 얽매인 일을 하라(入世之事).",
   title: "Euan Ster. Lee",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
