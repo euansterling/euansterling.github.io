@@ -149,10 +149,9 @@ gem install jekyll bundler
 jekyll -v     # jekyll 4.4.1
 bundler -v    # Bundler version 2.6.8
 
-# 테마를 사용할 경우 git clone 한다.
+# 지킬을 구성한다. 테마를 사용할 경우 git clone 한다.
 jekyll new username.github.io
 cd username.github.io
-
 # ├── _config.yml
 # ├── _posts/
 # │   └── 2025-06-07-welcome-to-jekyll.markdown
