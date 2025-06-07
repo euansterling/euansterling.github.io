@@ -59,7 +59,7 @@
   }
 
   /* 본문 스타일 추가사항 */
-  /* PostDetails, AboutLayout에서 인라인으로 추가하고 */
+  /* PostDetails, AboutLayout에서 인라인 추가하고 */
   .prose {
     /* 목록 간격 더 좁게 */
     li {
@@ -67,6 +67,12 @@
       ol {
         @apply !my-[0.3em];
       }
+    }
+
+    /* prose-h3: prose-h4: 인라인 추가에 따른 재재조정 */
+    h3 + *,
+    h4 + * {
+      @apply !mt-0;
     }
 
     /* 중요하지 않은 블록을 정의하고, 흐리게 처리 */
