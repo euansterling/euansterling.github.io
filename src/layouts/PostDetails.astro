@@ -102,7 +102,10 @@ const nextPost =
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" class="my-2" />
       <EditPost class="max-sm:hidden" {hideEditPost} {post} />
     </div>
-    <article id="article" class="mx-auto prose mt-8 max-w-app">
+    <article
+      id="article"
+      class="mx-auto prose mt-8 max-w-app leading-relaxed prose-h2:mt-[2.6em] prose-h3:mt-[2em] prose-code:!leading-none prose-ol:my-4 prose-li:my-0"
+    >
       <Content />
     </article>
 
@@ -265,4 +268,7 @@ const nextPost =
   document.addEventListener("astro:after-swap", () =>
     window.scrollTo({ left: 0, top: 0, behavior: "instant" })
   );
+
+  /* remark-collapse 에서 open 속성 미지원하여 추가 -- 포스트 로드시 TOC 열림 */
+  document.querySelector("details").setAttribute("open", "");
 </script>

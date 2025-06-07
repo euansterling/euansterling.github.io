@@ -57,4 +57,33 @@
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
+
+  /* 본문 스타일 추가사항 */
+  /* PostDetails, AboutLayout에서 인라인으로 추가하고 */
+  .prose {
+    /* 목록 간격 더 좁게 */
+    li {
+      ul,
+      ol {
+        @apply !my-[0.3em];
+      }
+    }
+
+    /* 중요하지 않은 블록을 정의하고, 흐리게 처리 */
+    .unimportant * {
+      color: var(--unimportant) !important;
+    }
+
+    /* 콜아웃 블록을 정의하고, 코드블록과 유사하게 처리 */
+    .callout {
+      @apply rounded-md border px-4 pt-3;
+      ul,
+      ol {
+        @apply !my-3;
+      }
+      + .callout {
+        @apply mt-4;
+      }
+    }
+  }
 }
