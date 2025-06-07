@@ -6,10 +6,10 @@ slug: github-pages-with-jekyll
 featured: false
 draft: false
 tags: [github, jekyll, ssg]
-description: Github Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
+description: GitHub Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
 ---
 
-Github Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
+GitHub Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
 
 <figure>
   <img
@@ -25,8 +25,9 @@ Github Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
 
 ## GitHub Pages
 
-[https://docs.github.com/ko/pages](https://docs.github.com/ko/pages)  
-GitHub를 통해 호스트되고 게시되는 퍼블릭 웹 페이지로서,  
+[https://docs.github.com/ko/pages](https://docs.github.com/ko/pages)
+
+GitHub를 통해 호스트되고 게시되는 퍼블릭 웹 페이지로서,\
 문서에 따르면 저장소를 먼저 만들라고 하지만, 테마를 사용할 경우 건너뛰도록 한다.
 
 <div class='unimportant'>
@@ -43,11 +44,8 @@ GitHub를 통해 호스트되고 게시되는 퍼블릭 웹 페이지로서,
 3. README로 초기화
 4. `Create repository` 클릭
 
-GitHub Pages는 GitHub Actions를 사용하여 Jekyll 빌드를 실행하여 사이트를 게시한다.  
+GitHub Pages는 GitHub Actions를 사용하여 Jekyll 빌드를 실행하여 사이트를 게시한다.\
 게시 소스 구성은 기본적으로 **Deploy from a branch** 으로 설정되며, 시작파일 (README.md) 을 콘텐츠로 하여 자동빌드 및 배포된다.
-
-- _repository_/ Settings/ Code and automation - Pages/ Build and deployment/ Deploy from a branch: **main, /root**
-- _repository_/ Actions/ pages build and deployment (1 workflow run)
 
 <aside class='callout'>
 📖 GitHub Actions :
@@ -55,6 +53,9 @@ GitHub Pages는 GitHub Actions를 사용하여 Jekyll 빌드를 실행하여 사
 - workflow를 자동화할 수 있는 도구로서 테스트, 배포(CI), 데이터수집 등을 할 수 있다. (2019.11)
 - 구조 : workflow, event, job, step, action, runner
 </aside>
+
+- _repository_/ Settings/ Code and automation - Pages/ Build and deployment/ Deploy from a branch: **main, /root**
+- _repository_/ Actions/ pages build and deployment (1 workflow run)
 
 </div>
 
@@ -71,11 +72,11 @@ GitHub Pages는 GitHub Actions를 사용하여 Jekyll 빌드를 실행하여 사
 <aside class='callout'>
 ❗Jekyll theme 관련 변경이 불가하다 :
 
-[GitHub Docs Quickstart for GitHub Pages - GitHub Docs](https://docs.github.com/en/pages/quickstart#changing-the-title-and-description),  
-[https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll),  
+[GitHub Docs Quickstart for GitHub Pages - GitHub Docs](https://docs.github.com/en/pages/quickstart#changing-the-title-and-description),\
+[https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll),\
 [https://github.com/skills/github-pages](https://github.com/skills/github-pages) (Step 2)
 
-위 문서에서 말하는 \_config.yml 파일이 보이지 않는다.  
+위 문서에서 말하는 \_config.yml 파일이 보이지 않는다.\
 아마도 Theme Chooser 기능 삭제 이후, 문서 업데이트를 제대로 하지 않은 듯 하다.
 
 </aside>
@@ -84,7 +85,7 @@ GitHub Pages는 GitHub Actions를 사용하여 Jekyll 빌드를 실행하여 사
 ❗GitHub Pages에서 지원되는 테마는 대부분 오래되었다 (2021.7.27) :
 
 [https://pages.github.com/themes/](https://pages.github.com/themes/) — Architect, Cayman, Dinky, Hacker, Leap day, ..  
-그나마 **minima** (Jekyll default theme) 는 업데이트 중이긴 하다. (2024.9.6)
+그나마 Minima (Jekyll default theme) 는 업데이트 중이긴 하다. (2024.9.6)
 
 </aside>
 
@@ -92,13 +93,14 @@ GitHub Pages는 GitHub Actions를 사용하여 Jekyll 빌드를 실행하여 사
 
 #### ~~Theme template (repository)~~
 
-</div>
+테마 커스터마이징에 제한이 있을 수 있다.
 
-https://github.com/cotes2020/chirpy-starter  
+https://github.com/cotes2020/chirpy-starter \
 https://github.com/gwenneg/blog-jekyll-asciidoc-template (Minimal Mistakes)
 
-`Use this template` → Create a new repository: **_owner_/_username_.github.io**  
-테마 커스터마이징에 제한이 있을 수 있다.
+`Use this template` → Create a new repository: _owner_/_username_.github.io
+
+</div>
 
 #### Fork or clone a theme (repository)
 
@@ -135,7 +137,7 @@ npm install && npm run build
 #### Requirements
 
 - Ruby 2.7.0+
-  - Moncef Belyamani, Why You Shouldn't Use the System Ruby to Install Gems on a Mac, [https://www.moncefbelyamani.com/why-you-shouldn-t-use-the-system-ruby-to-install-gems-on-a-mac/](https://www.moncefbelyamani.com/why-you-shouldn-t-use-the-system-ruby-to-install-gems-on-a-mac/)
+  - _Moncef Belyamani, [Why You Shouldn't Use the System Ruby to Install Gems on a Mac](https://www.moncefbelyamani.com/why-you-shouldn-t-use-the-system-ruby-to-install-gems-on-a-mac/)_
   - [asdf](https://asdf-vm.com/) | [chruby](https://github.com/postmodern/chruby) | [rbenv](https://github.com/rbenv/rbenv) | [rvm](https://rvm.io/)
 - RubyGems
 - GCC and Make
@@ -147,11 +149,13 @@ gem install jekyll bundler
 jekyll -v     # jekyll 4.4.1
 bundler -v    # Bundler version 2.6.8
 
-jekyll new github-pages
-cd github-pages
+# 테마를 사용할 경우 git clone 한다.
+jekyll new username.github.io
+cd username.github.io
+
 # ├── _config.yml
 # ├── _posts/
-# │   └── 2025-06-06-welcome-to-jekyll.markdown
+# │   └── 2025-06-07-welcome-to-jekyll.markdown
 # ├── .gitignore
 # ├── 404.html
 # ├── about.markdown
@@ -176,12 +180,13 @@ bundle exec jekyll serve --livereload
 # │   └── jekyll
 # │       └── update
 # │           └── 2025
-# │               └── 05
-# │                   └── 12
+# │               └── 06
+# │                   └── 07
 # │                       └── welcome-to-jekyll.html
 # └── .jekyll-cache
 
-# If you are using Ruby version 3.0.0 or higher, step 5 may fail. You may fix it by adding webrick to your dependencies: bundle add webrick
+# If you are using Ruby version 3.0.0 or higher, step 5 may fail.
+# You may fix it by adding webrick to your dependencies: bundle add webrick
 bundle add webrick
 ```
 
@@ -292,7 +297,7 @@ assets/js/dist
 git add *
 git status
 git commit -m 'Initial commit'
-git remote add origin https://github.com/[owner]/[repository].git
+git remote add origin https://github.com/owner/repository.git
 git remote -v
 git push origin main
 ```
