@@ -290,4 +290,9 @@ const nextPost =
 
   /* remark-collapse 에서 open 속성 미지원하여 추가 -- 포스트 로드시 TOC 열림 */
   document.querySelector("details").setAttribute("open", "");
+
+  /* 외부링크를 _blank로 열도록 처리 -- https://stackoverflow.com/a/4425214 */
+  Array.from(document.links)
+    .filter(link => link.hostname != window.location.hostname)
+    .forEach(link => (link.target = "_blank"));
 </script>
