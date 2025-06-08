@@ -44,18 +44,11 @@ GitHub를 통해 호스트되고 게시되는 퍼블릭 웹 페이지로서,\
 3. README로 초기화
 4. `Create repository` 클릭
 
-GitHub Pages는 GitHub Actions를 사용하여 Jekyll 빌드를 실행하여 사이트를 게시한다.\
+GitHub Pages는 GitHub Actions를 사용하여 내부의 Jekyll 빌드를 실행하여 사이트를 게시한다.\
 게시 소스 구성은 기본적으로 **Deploy from a branch** 으로 설정되며, 시작파일 (README.md) 을 콘텐츠로 하여 자동빌드 및 배포된다.
 
-<aside class='callout'>
-📖 GitHub Actions :
-
-- workflow를 자동화할 수 있는 도구로서 테스트, 배포(CI), 데이터수집 등을 할 수 있다. (2019.11)
-- 구조 : workflow, event, job, step, action, runner
-</aside>
-
 - _repository_/ Settings/ Code and automation - Pages/ Build and deployment/ Deploy from a branch: **main, /root**
-- _repository_/ Actions/ pages build and deployment (1 workflow run)
+- _repository_/ Actions/ pages build and deployment (1 workflow run !)
 
 </div>
 
@@ -115,6 +108,7 @@ https://github.com/cotes2020/jekyll-theme-chirpy
 git clone https://github.com/owner/username.github.io.git
 
 cd username.github.io
+bash tools/init.sh
 bundle
 npm install && npm run build
 ```
@@ -122,6 +116,13 @@ npm install && npm run build
 ### Configure a publishing source
 
 게시 소스 구성을 **GitHub Actions**으로 변경하여, 미리 설치된 Jekyll 사이트를 패키징하거나 정적 HTML을 배포할 수 있다.
+
+<aside class='callout'>
+📖 GitHub Actions :
+
+- workflow를 자동화할 수 있는 도구로서 테스트, 배포(CI), 데이터수집 등을 할 수 있다. (2019.11)
+- 구조 : workflow, event, job, step, action, runner
+</aside>
 
 - _repository_/ Settings/ Code and automaiton - Pages/ Build and deployment/ GitHub Actions
 - [https://github.com/actions/starter-workflows/tree/main/pages](https://github.com/actions/starter-workflows/tree/main/pages)
@@ -131,6 +132,10 @@ npm install && npm run build
 ## Jekyll
 
 [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/)
+
+지킬은 간단한 정적 사이트 생성기이다. 복잡함 없는 파일 기반 CMS.\
+콘텐츠를 가져와 Markdown 및 Liquid 템플릿을 렌더링하여 정적 웹사이트를 생성한다.\
+GitHub Pages의 엔진으로 GitHub 저장소에서 바로 사이트를 호스팅하는데 사용되고 있다.
 
 ### Install
 
@@ -209,6 +214,7 @@ comments: true
 plugins:
   - jekyll-asciidoc
   - jekyll-target-blank
+  ...
 ```
 
 Gemfile
@@ -231,6 +237,8 @@ gem 'jekyll-target-blank'
 
 - `_posts/` 디렉토리에 새로운 _YEAR-MONTH-DAY-NAME-OF-POST.MARKUP_ 파일을 만든다.
 - frontmatter는 yaml 형식으로 작성한다.
+
+\_posts/yyyy-mm-dd-a-post.md
 
 ```markdown
 ---
@@ -300,3 +308,11 @@ git remote add origin https://github.com/owner/repository.git
 git remote -v
 git push origin main
 ```
+
+---
+
+_ref._
+
+- _Namhoon Kim, jekyll, 2017.2, [https://namhoon.kim/categories/jekyll/](https://namhoon.kim/categories/jekyll/)_
+- _Chulgil Lee, 블로그 만들기 GitHub편 총정리, 2019, [https://blog.chulgil.me/how-to-make-blog-using-github/](https://blog.chulgil.me/how-to-make-blog-using-github/)_
+- _Gwenneg Lepage, Blogging on GitHub Pages with minimal effort, 2024.8, [https://gwenneg.com/2024/08/17/blogging-with-minimal-effort.html](https://gwenneg.com/2024/08/17/blogging-with-minimal-effort.html)_
