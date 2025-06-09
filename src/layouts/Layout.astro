@@ -150,7 +150,7 @@ const structuredData = {
           // 필터링된 각 외부 링크에 대해 다음 작업을 수행
           .forEach(link => {
             link.target = "_blank";
-            // link.rel = "noopener noreferrer"; // 보안 취약점(Tabnabbing)을 방지
+            link.rel = "noopener noreferrer"; // 보안 취약점(Tabnabbing)을 방지
           });
       });
     </script>
