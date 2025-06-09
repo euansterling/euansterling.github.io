@@ -17,7 +17,7 @@ GitHub Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
     alt=""
   />
   <figcaption class="text-center">
-    <a href="https://jekyllrb.com" target="blank">jekyllrb.com</a>
+    <a href="https://jekyllrb.com">jekyllrb.com</a>
   </figcaption>
 </figure>
 
