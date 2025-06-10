@@ -4,7 +4,7 @@ export const SITE = {
   profile: "https://github.com/euansterling/",
   desc: "세상을 벗어난 마음으로(出世之心) 세상에 얽매인 일을 하라(入世之事).",
   title: "Euan Ster. Lee",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 10,
