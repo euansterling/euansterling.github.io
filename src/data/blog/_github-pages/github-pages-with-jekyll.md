@@ -11,9 +11,7 @@ description: GitHub Pages, Jekyll, 그리고 설치법 몇가지와 문서오류
 
 GitHub Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
 
-<img
-    src="https://github-production-user-asset-6210df.s3.amazonaws.com/210206728/453359644-f6b2683d-7033-4b27-9ded-6d0058f71538.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250610%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250610T085221Z&X-Amz-Expires=300&X-Amz-Signature=1d9c1bab34bcf8978cee4151f86bbf0cf94700e7f012f90ae3de683100980482&X-Amz-SignedHeaders=host"
-  />
+<img src="https://github.com/user-attachments/assets/e87b59d9-37cc-467c-a98c-907415397743" />
 
 ## Table of contents
 
