@@ -82,10 +82,10 @@
 
     /* 콜아웃 블록을 정의하고, 코드블록과 유사하게 처리 */
     .callout {
-      @apply rounded-md border px-4 pt-3 pb-2 leading-normal;
+      @apply rounded-md border px-4 pt-3;
       ul,
       ol {
-        @apply !my-2;
+        @apply !my-3;
       }
       + .callout {
         @apply mt-4;
