@@ -31,10 +31,11 @@ export default defineConfig({
   image: {
     // Used for all Markdown images; not configurable per-image
     // Used for all `<Image />` and `<Picture />` components unless overridden with a prop
-    experimentalLayout: "responsive",
+    // experimentalLayout: "responsive",
+    experimentalLayout: "constrained", // (v5.7.6)
   },
   experimental: {
-    svg: true,
+    // svg: true, (v5.7.0)
     responsiveImages: true,
     preserveScriptOrder: true,
   },
