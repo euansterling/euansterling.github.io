@@ -11,7 +11,15 @@ description: GitHub Pages, Jekyll, 그리고 설치법 몇가지와 문서오류
 
 GitHub Pages, Jekyll, 그리고 설치법 몇가지와 문서오류에 대해
 
-<img src="https://github.com/user-attachments/assets/e87b59d9-37cc-467c-a98c-907415397743" />
+<figure>
+  <img
+    src="https://jekyllrb.com/img/logo-2x.png"
+    alt=""
+  />
+  <figcaption class="text-center">
+    <a href="https://jekyllrb.com">jekyllrb.com</a>
+  </figcaption>
+</figure>
 
 ## Table of contents
 
