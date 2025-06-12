@@ -5,11 +5,11 @@ title: Astro를 사용하여 GitHub Pages 사이트 만들기
 slug: github-pages-with-astro
 featured: false
 draft: false
-tags: [github, astro, ssg]
-description: Astro, Themes, GitHub Pages 배포, 그리고 Discussions
+tags: [github, astro, ssg, giscus]
+description: Astro, Themes, GitHub Pages 배포, 그리고 Plugins
 ---
 
-Astro, Themes, GitHub Pages 배포, 그리고 Discussions
+Astro, Themes, GitHub Pages 배포, 그리고 Plugins
 
 <figure class="flex flex-col items-center">
   <svg xmlns="http://www.w3.org/2000/svg" width="424" height="128" viewBox="0 -6 381 100">
@@ -183,22 +183,22 @@ Astro는 파일 기반 라우팅을 한다. `src/pages/` 의 각 파일은 사�
 
 - 콘텐츠를 작성한다.
 
-  posts/_a-post_.md
+posts/_a-post_.md
 
-  ```markdown
-  ---
-  title:
-  description:
-  pubDate: YYYY-MM-DD
-  author:
-  image:
-    url:
-    alt:
-  tags: []
-  ---
+```markdown
+---
+title:
+description:
+pubDate: YYYY-MM-DD
+author:
+image:
+  url:
+  alt:
+tags: []
+---
 
   <!--- 이하 본문 --->
-  ```
+```
 
 ## Themes
 
@@ -213,9 +213,8 @@ Astro는 파일 기반 라우팅을 한다. `src/pages/` 의 각 파일은 사�
 
 ### Astro Paper
 
-[https://github.com/satnaing/astro-paper](https://github.com/satnaing/astro-paper)
-
-- Stack : astro, tailwindcss, astro-icon, dayjs, lodash.kebabcase, satori, sharp, pagefind
+[https://github.com/satnaing/astro-paper](https://github.com/satnaing/astro-paper) \
+Stack : astro, tailwindcss, astro-icon, dayjs, lodash.kebabcase, satori, sharp, pagefind
 
 #### Install
 
@@ -402,7 +401,7 @@ timezone: # 콘텐츠내 시간대 -- new Date().toISOString()
 <!--- 이하 본문 --->
 ```
 
-#### Update template and dependencies 😱
+#### Update template ~~and dependencies~~
 
 ```bash
 # Updating AstroPaper template
@@ -414,24 +413,51 @@ git pull astro-paper main
 # fatal: refusing to merge unrelated histories
 git pull astro-paper main --allow-unrelated-histories
 
-# 변경사항 확인 및 conflict 해결 후 커밋
+# fatal이 아니라 자동으로 rebase 모드로 전환되었을때 (<-- git config pull.rebase true | git pull --rebase)
+# 각 커밋별 변경사항 확인, conflict 해결 후 계속
+> Auto-merging .github/workflows/ci.yml
+> Auto-merging src/constants.ts
+> CONFLICT (content): Merge conflict in src/constants.ts
+> error: could not apply 4daa336... Initial commit
+> hint: Resolve all conflicts manually, mark them as resolved with
+> hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+> hint: You can instead skip this commit: run "git rebase --skip".
+> hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+> hint: Disable this message with "git config set advice.mergeConflict false"
+git rebase --continue
+> fatal: no rebase in progress
+git status
+> On branch update/astro-paper
+> nothing to commit, working tree clean
+
+# 변경사항 확인, conflict 해결 후 커밋
 git status
 > On branch update/astro-paper
 > You have unmerged paths.
 > Unmerged paths:
 >   both modified: src/styles/base.css
-git diff
 git add .
-git commit -m "Resolve merge conflicts with astro-paper main"
+git commit -m "Resolve merge conflicts with astro-paper main update"
 
 # main으로 병합
 git checkout main
+git pull origin main
 git merge update/astro-paper
+git status
+> On branch main
+> Your branch is ahead of 'origin/main' by 40 commits.
+>  (use "git push" to publish your local commits)
 git push origin main
-# 테마 원격 삭제
+
+# 테마 원격, 업데이트 브랜치 삭제
+git branch -d update/astro-paper
 git remote remove astro-paper
 git remote -v
 ```
+
+<div class='unimportant'>
+
+Updating Package Dependencies -- 테마의 package, lock을 우선시 하자.
 
 ```bash
 # Updating Package Dependencies
@@ -441,64 +467,7 @@ ncu -i --target patch
 ncu -i
 ```
 
-### NeonMint
-
-[https://github.com/EFEELE/NeonMint](https://github.com/EFEELE/NeonMint)
-
-- Stack : astro, preact, tailwindcss, astro-icon, prismjs, tailwindcss-animated, @vercel/speed-insights
-
-Install
-
-```bash
-npm create astro@latest -- --template EFEELE/neonmint
-# or
-git clone https://github.com/EFEELE/NeonMint.git
-cd NeonMint
-npm install
-npm run dev
-```
-
-Instructions
-
-```bash
-NeonMint/
-├── public/
-│   └── images/
-│       └── posts/       # Post images
-├── src/
-│   ├── components/      # Reusable UI components
-│   ├── icons/           # Icons (.svg)
-│   ├── layouts/         # Site layouts
-│   ├── pages/           # Site pages
-│   │   ├── about-me.md           # About-me page
-│   │   ├── blog/        # All posts page
-│   │   │   ├── index.astro       # Blog home page
-│   │   │   ├── posts/            # Blog posts
-│   │   │   ├── └── index.astro   # All posts page
-│   │   │   ├── tags/             # Blog tags
-│   │   │   └── techs/            # Blog technologies
-│   │   └── index.astro           # Home page
-│   ├── scripts/
-│   ├── styles/
-│   └── utils/
-│       └── languages.ts          # site's capsules
-├── astro.config.mjs
-├── package-lock.json
-├── package.json
-└── tsconfig.json
-```
-
-Spec capsules: 언어나 기술 스펙을 표현
-
-- src/icons — [https://svgl.app/](https://svgl.app/)
-- utils/languages.ts
-  ```jsx
-  ...
-  html: {
-      name: "HTML 5",
-      iconName: "html",
-  }
-  ```
+</div>
 
 ---
 
@@ -537,10 +506,11 @@ Spec capsules: 언어나 기술 스펙을 표현
 </body>
 ```
 
-## Discussions
+## Plugins
 
-[https://giscus.app](https://giscus.app/)
+### Giscus
 
+[https://giscus.app](https://giscus.app/) \
 오픈 소스 또는 내부 프로젝트에 대한 커뮤니티를 위한 협업 커뮤니케이션 포럼
 
 - GitHub 공개저장소
