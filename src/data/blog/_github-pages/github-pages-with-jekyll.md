@@ -65,9 +65,9 @@ GitHub Pages는 GitHub Actions를 사용하여 내부의 Jekyll 빌드를 실행
 <aside class='callout'>
 ❗Jekyll theme 관련 변경이 불가하다 :
 
-[GitHub Docs Quickstart for GitHub Pages - GitHub Docs](https://docs.github.com/en/pages/quickstart#changing-the-title-and-description),\
-[https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll),\
-[https://github.com/skills/github-pages](https://github.com/skills/github-pages) (Step 2)
+- [GitHub Docs Quickstart for GitHub Pages - GitHub Docs](https://docs.github.com/en/pages/quickstart#changing-the-title-and-description)
+- [https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)
+- [https://github.com/skills/github-pages](https://github.com/skills/github-pages) (Step 2)
 
 위 문서에서 말하는 \_config.yml 파일이 보이지 않는다.\
 아마도 Theme Chooser 기능 삭제 이후, 문서 업데이트를 제대로 하지 않은 듯 하다.
@@ -194,9 +194,9 @@ bundle exec jekyll serve --livereload
 bundle add webrick
 ```
 
-\_config.yml
+Configuration
 
-```yaml
+```yml file=_config.yml
 url: https://username.github.io
 baseurl:
 title:
@@ -217,9 +217,7 @@ plugins:
   ...
 ```
 
-Gemfile
-
-```ruby
+```ruby file=Gemfile
 # frozen_string_literal: true
 source "<https://rubygems.org>"
 gemspec
@@ -238,9 +236,7 @@ gem 'jekyll-target-blank'
 - `_posts/` 디렉토리에 새로운 _YEAR-MONTH-DAY-NAME-OF-POST.MARKUP_ 파일을 만든다.
 - frontmatter는 yaml 형식으로 작성한다.
 
-\_posts/yyyy-mm-dd-a-post.md
-
-```markdown
+```md file=_posts/yyyy-mm-dd-post.md
 ---
 layout: post
 permalink:
@@ -266,9 +262,7 @@ custom-variable:
 
 ### Git sync
 
-.gitignore
-
-```bash
+```bash file=.gitignore
 # Bundler cache
 .bundle
 vendor

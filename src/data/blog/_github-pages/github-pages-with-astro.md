@@ -12,7 +12,7 @@ description: Astro, Themes, GitHub Pages 배포, 그리고 Plugins
 Astro, Themes, GitHub Pages 배포, 그리고 Plugins
 
 <figure class="flex flex-col items-center">
-  <svg xmlns="http://www.w3.org/2000/svg" width="424" height="128" viewBox="0 -6 381 100">
+  <svg xmlns="http://www.w3.org/2000/svg" width="424" height="128" viewBox="0 -6 381 100" class="max-w-full">
     <path class="flame" fill="currentColor" d="M25.8 85.2c-4.5-4.2-5.9-12.8-4-19.1 3.3 4 7.8 5.2 12.5 6 7.2 1 14.3.6 21-2.7l2.4-1.4c.6 1.8.8 3.7.5 5.6-.5 4.5-2.8 8-6.4 10.7-1.4 1.1-3 2-4.5 3-4.6 3.2-5.8 6.8-4 12.1v.6a12 12 0 0 1-5.3-4.6 13 13 0 0 1-2-7c0-1.2 0-2.5-.2-3.7-.4-3-1.8-4.3-4.5-4.4a5.2 5.2 0 0 0-5.4 4.2l-.1.7Z"></path>
     <path fill="currentColor" d="M0 65s13.4-6.5 26.8-6.5l10.1-31.3c.4-1.5 1.5-2.5 2.7-2.5 1.3 0 2.4 1 2.8 2.5l10 31.3c16 0 26.9 6.5 26.9 6.5L56.5 3c-.6-1.8-1.7-3-3.2-3H26c-1.5 0-2.5 1.2-3.2 3L0 65Zm141-19.9c0 5.5-6.8 8.8-16.2 8.8-6.2 0-8.3-1.5-8.3-4.7 0-3.4 2.6-5 8.8-5 5.5 0 10.3 0 15.7.8v.1Zm.1-6.8a71 71 0 0 0-14.5-1.2c-17.7 0-26 4.2-26 14 0 10.1 5.7 14 18.8 14 11.2 0 18.8-2.8 21.6-9.8h.4l-.1 4.7c0 3.6.6 3.9 3.5 3.9h13.8c-.8-2.2-1.2-8.2-1.2-13.4l.2-15.4c0-11.5-6.9-18.8-28.5-18.8-9.3 0-19.6 1.6-27.5 4 .8 3.1 1.8 9.4 2.3 13.5a61.4 61.4 0 0 1 24-4.5c10.4 0 13.2 2.3 13.2 7.1v2Zm37.9 10c-1.9.3-4.5.3-7 .3a60 60 0 0 1-7.1-.4l-.1 2c0 9.5 6.2 15 28.1 15 20.6 0 27.3-5.5 27.3-15.1 0-9.2-4.4-13.7-24-14.7-15.2-.6-16.6-2.3-16.6-4.2 0-2.2 2-3.4 12.2-3.4 10.6 0 13.4 1.5 13.4 4.5v.7a153 153 0 0 1 14.1 0v-1.7c0-11.2-9.2-14.9-27.2-14.9-20.3 0-27 5-27 14.6 0 8.7 5.4 14.1 24.8 15 14.3.4 16 2 16 4.2 0 2.4-2.4 3.5-12.5 3.5-11.5 0-14.4-1.6-14.4-5v-.4Zm66-40.1a58.2 58.2 0 0 1-20.8 11.6v10.8h5V47c0 10 5.3 17.7 21.8 17.7 7 0 11.6-.8 17.4-2-.6-3.7-1.3-9.4-1.5-13.8a41 41 0 0 1-12.6 1.8c-6.6 0-9.3-1.8-9.3-7.1V30.8c8.6 0 17.1.2 22.1.4 0-4 .1-9.7.3-13.5l-22.1.2.2-9.7h-.5Zm44.7 20.1.3-10.6h-15.1c.2 6.5.2 13.3.2 23 0 10 0 16.7-.2 23.2H292c-.3-4.6-.3-12.3-.3-18.9 0-10.3 4.2-13.3 13.7-13.3 4.4 0 7.6.5 10.3 1.5.1-3.8.9-11.4 1.3-14.7a34 34 0 0 0-9.8-1.4c-8.2 0-14.2 3.3-17 11.3l-.6-.1Zm75.1 12.2c0 8.3-6 12.2-15.4 12.2S334 49 334 40.5c0-8.6 6-11.8 15.4-11.8 9.3 0 15.4 3.5 15.4 11.8Zm15.7-.4c0-16.5-13-24-31.1-24-18.3 0-30.8 7.5-30.8 24s11.6 25.3 30.7 25.3c19.2 0 31.2-8.8 31.2-25.3Z"></path>
     <defs>
@@ -102,9 +102,9 @@ npm run dev
 
 [https://docs.astro.build/en/guides/deploy/github/](https://docs.astro.build/en/guides/deploy/github/)
 
-1. astro.config.mjs
+1. Set the site and base
 
-```jsx
+```jsx file=astro.config.mjs
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
@@ -117,7 +117,7 @@ export default defineConfig({
 
 [https://github.com/withastro/action/blob/main/README.md](https://github.com/withastro/action/blob/main/README.md) → _repository_/ Settings/ Code and automaiton - Pages/ Build and deployment/ GitHub Actions → .github/workflows/_deploy_.yml
 
-```yaml
+```yml file=.github/workflows/deploy.yml
 name: Deploy to GitHub Pages
 
 on:
@@ -183,10 +183,9 @@ Astro는 파일 기반 라우팅을 한다. `src/pages/` 의 각 파일은 사�
 
 - 콘텐츠를 작성한다.
 
-posts/_a-post_.md
-
-```markdown
+```md file=posts/post.md
 ---
+# [!code highlight:3]
 title:
 description:
 pubDate: YYYY-MM-DD
@@ -197,7 +196,7 @@ image:
 tags: []
 ---
 
-  <!--- 이하 본문 --->
+<!--- 이하 본문 --->
 ```
 
 ## Themes
@@ -261,9 +260,9 @@ astro-paper/
 └── tsconfig.json
 ```
 
-src/config.ts
+Set the SITE and SOCIALS
 
-```tsx
+```tsx file=src/config.ts
 export const SITE = {
   website: "https://username.github.io", // replace this with your deployed domain
   author: "Full Name",
@@ -288,9 +287,7 @@ export const SITE = {
 } as const;
 ```
 
-src/constants.ts
-
-```tsx
+```tsx file=src/constants.ts
 export const SOCIALS = [
   {
     name: "Github",
@@ -298,15 +295,13 @@ export const SOCIALS = [
     linkTitle: ` ${SITE.title} on Github`,
     icon: IconGitHub,
   },
-  ...
+  // ...
 ] as const;
 ```
 
 #### Configure GitHub Actions
 
-.github/workflows/ci.yml
-
-```yaml
+```yml file=.github/workflows/ci.yml
 name: CI
 
 on:
@@ -326,6 +321,7 @@ jobs:
 
     strategy:
       matrix:
+        # [!code highlight:1]
         node-version: [22]
 
     steps:
@@ -350,12 +346,10 @@ jobs:
         run: pnpm run build
 ```
 
-.github/workflows/deploy.yml
-
 [_https://github.com/withastro/action/blob/main/README.md_](https://github.com/withastro/action/blob/main/README.md)
 
-```yaml
-...
+```yml file=.github/workflows/deploy.yml
+# ...
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -367,8 +361,9 @@ jobs:
         with:
           # path: . # The root location of your Astro project inside the repository. (optional)
           # node-version: 22 # The specific version of Node that should be used to build your site. Defaults to 22. (optional)
+          # [!code highlight:1]
           package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-  ...
+# ...
 ```
 
 #### Creating posts
@@ -378,11 +373,12 @@ src/data/blog/
 - 새 글(.md)을 작성한다.
 - 하위에 `_dir/`를 만들어 글들을 묶어 정리해 둘 수 있다. URL에 반영되지 않는다.
 
-```markdown
+```md
 ---
-title: # 필수
-description: # 필수
-pubDate: YYYY-MM-DDThh:mm:ss+09 # 필수 (ISO 8601형식 중 구분자(-,:)와 ss 필수)
+# [!code highlight:3]
+title:
+description:
+pubDate: YYYY-MM-DDThh:mm:ss+09 # (ISO 8601형식 중 구분자(-,:)와 ss 필수)
 modDatetime:
 slug:
 author:
@@ -409,11 +405,23 @@ timezone: # 콘텐츠내 시간대 -- new Date().toISOString()
 git remote add astro-paper https://github.com/satnaing/astro-paper.git
 git remote -v
 git checkout -b update/astro-paper
+
 git pull astro-paper main
 # fatal: refusing to merge unrelated histories
-git pull astro-paper main --allow-unrelated-histories
+# fatal: Need to specify how to reconcile divergent branches.
+# => merge
+git pull astro-paper main --allow-unrelated-histories # or (git config pull.rebase false | git pull astro-paper main --no-rebase)
+# conflict 해결 후 커밋
+git status
+> On branch update/astro-paper
+> You have unmerged paths.
+> Unmerged paths:
+>   both modified: src/styles/base.css
+git add .
+git commit -m "Resolve merge conflicts with astro-paper main update"
 
-# fatal이 아니라 자동으로 rebase 모드로 전환되었을때 (<-- git config pull.rebase true | git pull --rebase)
+# 자동으로 rebase 모드로 전환되었거나 (<-- git config pull.rebase true), 진행하고자 할때 (git pull astro-paper main --rebase)
+# => rebase
 # 각 커밋별 변경사항 확인, conflict 해결 후 계속
 > Auto-merging .github/workflows/ci.yml
 > Auto-merging src/constants.ts
@@ -429,15 +437,6 @@ git rebase --continue
 git status
 > On branch update/astro-paper
 > nothing to commit, working tree clean
-
-# 변경사항 확인, conflict 해결 후 커밋
-git status
-> On branch update/astro-paper
-> You have unmerged paths.
-> Unmerged paths:
->   both modified: src/styles/base.css
-git add .
-git commit -m "Resolve merge conflicts with astro-paper main update"
 
 # main으로 병합
 git checkout main
@@ -475,14 +474,14 @@ ncu -i
 
 1. 외부 링크에 대해 내부 링크로 처리되는 문제
 
-```html
-// src/layouts/Layout.astro
+```html file=src/layouts/Layout.astro
 <body>
   <slot />
+
   <script is:inline data-astro-rerun>
     /* 외부링크를 _blank로 열도록 처리 */
     // DOM이 로드된 후에 스크립트가 실행되도록 보장하고
-    // astro 파일이라 그런가 -- DOMContentLoaded (X), data-astro-rerun | astro:page-load (O)
+    // astro 파일이라 그런가 -- (X) DOMContentLoaded, (O) data-astro-rerun | astro:page-load
     // document.addEventListener("astro:page-load", () => {
     // 문서 내의 모든 <a> 태그(링크)를 배열로 변환
     Array.from(document.links)
@@ -517,24 +516,24 @@ ncu -i
 - giscus.app 설치
 - 저장소내 토론 활성화 (repository/ Settings/ [v] Discussions) 및 새 카테고리 Comments (Announcement 형식) 생성
 
-```html
-// src/layouts/PostDetails.astro
-<!-- <div class="giscus"> -->
-<script
-  src="https://giscus.app/client.js"
-  data-repo="owner/username.github.io"
-  data-repo-id="R_kgDOOrIEX.."
-  data-category="Comments"
-  data-category-id="DIC_kwDOOrIEXs4.."
-  data-mapping="pathname"
-  data-strict="1"
-  data-reactions-enabled="1"
-  data-emit-metadata="1"
-  data-input-position="bottom"
-  data-theme="preferred_color_scheme"
-  data-lang="ko"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+```html file=src/layouts/PostDetails.astro
+<div class="giscus">
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="owner/username.github.io"
+    data-repo-id="R_kgDOOrIEX.."
+    data-category="Comments"
+    data-category-id="DIC_kwDOOrIEXs4.."
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="ko"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
 ```
