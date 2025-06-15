@@ -88,14 +88,14 @@ const nextPost =
   <main
     id="main-content"
     class:list={[
-      "max-w-app mx-auto w-full px-4 pb-12",
+      "mx-auto w-full max-w-app px-4 pb-12",
       { "mt-8": !SITE.showBackButton },
     ]}
     data-pagefind-body
   >
     <h1
       transition:name={slugifyStr(title)}
-      class="text-accent inline-block text-2xl font-bold sm:text-3xl"
+      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
     >
       {title}
     </h1>
@@ -105,7 +105,7 @@ const nextPost =
     </div>
     <article
       id="article"
-      class="app-prose max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg) prose-h2:mt-[2.6em] prose-h3:mt-[2em] prose-h4:mt-[2em] prose-p:my-[1em] prose-pre:leading-[1.6] prose-ol:my-4 prose-li:my-0 mx-auto mt-8 leading-relaxed text-inherit"
+      class="app-prose mx-auto mt-8 max-w-app leading-relaxed text-inherit prose-h2:mt-[2.6em] prose-h3:mt-[2em] prose-h4:mt-[2em] prose-p:my-[1em] prose-pre:bg-(--shiki-light-bg) prose-pre:leading-[1.6] dark:prose-pre:bg-(--shiki-dark-bg) prose-ol:my-4 prose-li:my-0"
     >
       <Content />
     </article>
@@ -114,7 +114,7 @@ const nextPost =
 
     <EditPost class="sm:hidden" {hideEditPost} {post} />
 
-    <ul class="mb-8 mt-4 sm:my-8">
+    <ul class="mt-4 mb-8 sm:my-8">
       {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
     </ul>
 
@@ -135,7 +135,7 @@ const nextPost =
             <IconChevronLeft class="inline-block flex-none rtl:rotate-180" />
             <div>
               <span>Previous Post</span>
-              <div class="text-accent/85 text-sm">{prevPost.title}</div>
+              <div class="text-sm text-accent/85">{prevPost.title}</div>
             </div>
           </a>
         )
@@ -148,7 +148,7 @@ const nextPost =
           >
             <div>
               <span>Next Post</span>
-              <div class="text-accent/85 text-sm">{nextPost.title}</div>
+              <div class="text-sm text-accent/85">{nextPost.title}</div>
             </div>
             <IconChevronRight class="inline-block flex-none rtl:rotate-180" />
           </a>
@@ -235,7 +235,7 @@ const nextPost =
 
       const copyButton = document.createElement("button");
       copyButton.className =
-        "copy-code absolute end-3 top-3 rounded bg-muted/80 px-2 py-1 text-xs leading-4 text-foreground font-medium text-[0.6rem]";
+        "copy-code absolute end-3 top-3 rounded bg-muted/80 px-2 py-1 text-xs leading-4 text-foreground font-medium";
       copyButton.innerHTML = copyButtonLabel;
       codeBlock.setAttribute("tabindex", "0");
       codeBlock.appendChild(copyButton);
