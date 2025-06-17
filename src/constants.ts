@@ -9,6 +9,8 @@ import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
 import { SITE } from "@/config";
 
+import type { GiscusProps } from "@giscus/react";
+
 interface Social {
   name: string;
   href: string;
@@ -81,3 +83,18 @@ export const SHARE_LINKS: Social[] = [
     icon: IconMail,
   },
 ] as const;
+
+export const GISCUS: GiscusProps = {
+  repo: "euansterling/euansterling.github.io",
+  repoId: "R_kgDOO3oMOw",
+  category: "Comments",
+  categoryId: "DIC_kwDOO3oMO84Crntq",
+  mapping: "pathname",
+  // term: "",
+  strict: "1",
+  reactionsEnabled: "1",
+  emitMetadata: "0",
+  inputPosition: "bottom",
+  lang: "en",
+  loading: "lazy",
+};

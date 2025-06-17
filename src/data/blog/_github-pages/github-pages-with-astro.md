@@ -520,34 +520,42 @@ ncu -i
 
 ### Giscus
 
-[https://giscus.app](https://giscus.app/) \
+https://github.com/giscus/giscus/blob/main/README.ko.md \
 오픈 소스 또는 내부 프로젝트에 대한 커뮤니티를 위한 협업 커뮤니케이션 포럼
 
 - GitHub 공개저장소
-- giscus.app 설치
-- 저장소내 토론 활성화 (repository/ Settings/ [v] Discussions) 및 새 카테고리 Comments (Announcement 형식) 생성
+- Giscus GitHub App 설치 -- https://github.com/apps/giscus
+- 저장소내 토론 활성화 (_repository_/ Settings/ General/ Features - [v] Discussions) 및 새 카테고리 생성 (Discussioins/ Categories/ Edit/ New category/ _Comments_ (Announcement 형식))
+- https://giscus.app/ API 설정
 
-```html file=src/layouts/PostDetails.astro
-<div class="giscus">
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="owner/username.github.io"
-    data-repo-id="R_kgDOOrIEX.."
-    data-category="Comments"
-    data-category-id="DIC_kwDOOrIEXs4.."
-    data-mapping="pathname"
-    data-strict="1"
-    data-reactions-enabled="1"
-    data-emit-metadata="1"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="ko"
-    data-loading="lazy"
-    crossorigin="anonymous"
-    async
-  ></script>
-</div>
+```astro file=src/layouts/PostDetails.astro
+<Layout {...layoutProps}>
+  <main>
+    <ShareLinks />
+
+    <!-- Comments 스크립트 추가 -->
+    <script
+      src="https://giscus.app/client.js"
+      data-repo="owner/username.github.io"
+      data-repo-id="R_kgDOOrIEX.."
+      data-category="Comments"
+      data-category-id="DIC_kwDOOrIEXs4.."
+      data-mapping="pathname"
+      data-strict="1"
+      data-reactions-enabled="1"
+      data-emit-metadata="1"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="ko"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async></script>
+  </main>
+  <Footer />
+</Layout>
 ```
+
+- _React component with light/dark theme (테마 토글버튼으로 테마 변경시 Giscus 테마도 변경), https://astro-paper.pages.dev/posts/how-to-integrate-giscus-comments/#react-component-with-lightdark-theme_
 
 ---
 
