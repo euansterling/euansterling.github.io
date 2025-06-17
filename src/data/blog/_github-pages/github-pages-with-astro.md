@@ -401,16 +401,20 @@ timezone: # 콘텐츠내 시간대 -- new Date().toISOString()
 
 ```bash
 # Updating AstroPaper template
-# 테마 원격 추가 및 병합 시도
-git remote add astro-paper https://github.com/satnaing/astro-paper.git
+# 새로운 원격(테마)저장소를 추가하고 업데이트용 로컬브랜치로 이동
+git remote add astro-paper https://github.com/satnaing/astro-paper.git # [!code highlight]
 git remote -v
-git checkout -b update/astro-paper
+git checkout -b update/astro-paper # [!code highlight]
 
+# 다음 두가지 방식이 있다.
+# 1. merge 방식: 단 한 번의 충돌 해결을 선호할 때 (git config pull.rebase false)
+# 원격 테마의 최신 변경사항을 update/astro-paper 브랜치로 가져올 때, 모든 변경사항을 하나의 병합커밋(merge commit)으로 통합한다.
+# 다만, 히스토리에 병합 커밋이 자주 생성되어 git log가 다소 복잡해 보일 수 있다.
 git pull astro-paper main
-# fatal: refusing to merge unrelated histories
-# fatal: Need to specify how to reconcile divergent branches.
-# => merge
-git pull astro-paper main --allow-unrelated-histories # or (git config pull.rebase false | git pull astro-paper main --no-rebase)
+# fatal: refusing to merge unrelated histories (최초 병합시)
+git pull astro-paper main --allow-unrelated-histories
+# fatal: Need to specify how to reconcile divergent branches. Need to specify --no-rebase
+git pull astro-paper main --no-rebase # [!code highlight]
 # conflict 해결 후 커밋
 git status
 > On branch update/astro-paper
@@ -420,8 +424,12 @@ git status
 git add .
 git commit -m "Resolve merge conflicts with astro-paper main update"
 
-# 자동으로 rebase 모드로 전환되었거나 (<-- git config pull.rebase true), 진행하고자 할때 (git pull astro-paper main --rebase)
-# => rebase
+# 2. rebase + squash: 깔끔한 선형 히스토리를 선호할 때 (git config pull.rebase true)
+# 원격 브랜치의 최신 커밋들 위에 로컬 커밋들을 하나씩 순서대로 적용하므로, 충돌은 여러 번일 수 있다.
+# 여기에 단 한 번의 충돌 해결을 원한다면, 다음 명령으로 update/astro-paper의 모든 로컬 커밋들을 미리 하나의 커밋으로 합쳐둔(squash)후 진행한다. (main 커밋들은 영향받지 않는다!)
+git reset --soft $(git rev-list --max-parents=0 HEAD) && git commit --amend --no-edit # [!code highlight]
+
+git pull astro-paper main --rebase # [!code highlight]
 # 각 커밋별 변경사항 확인, conflict 해결 후 계속
 > Auto-merging .github/workflows/ci.yml
 > Auto-merging src/constants.ts
@@ -432,13 +440,16 @@ git commit -m "Resolve merge conflicts with astro-paper main update"
 > hint: You can instead skip this commit: run "git rebase --skip".
 > hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
 > hint: Disable this message with "git config set advice.mergeConflict false"
+git add .
 git rebase --continue
+
 > fatal: no rebase in progress
 git status
 > On branch update/astro-paper
 > nothing to commit, working tree clean
 
-# main으로 병합
+# 로컬 main으로 병합
+ # [!code highlight:3]
 git checkout main
 git pull origin main
 git merge update/astro-paper
@@ -446,9 +457,9 @@ git status
 > On branch main
 > Your branch is ahead of 'origin/main' by 40 commits.
 >  (use "git push" to publish your local commits)
-git push origin main
+git push origin main # [!code highlight]
 
-# 테마 원격, 업데이트 브랜치 삭제
+# 원격(테마)저장소, 업데이트용 로컬브랜치 삭제
 git branch -d update/astro-paper
 git remote remove astro-paper
 git remote -v
@@ -537,3 +548,9 @@ ncu -i
   ></script>
 </div>
 ```
+
+---
+
+_ref._
+
+- _Erison Silva, Update frontend theme using git, 2025.6, [https://blog.erison.work/posts/update-frontend-theme-using-git/#convert-all-commits-into-one](https://blog.erison.work/posts/update-frontend-theme-using-git/#convert-all-commits-into-one)_
