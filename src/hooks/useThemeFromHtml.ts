@@ -27,7 +27,7 @@ export function useThemeFromHtml(): Theme {
     const getTheme = (): Theme =>
       document.documentElement.getAttribute("data-theme") === "dark"
         ? "dark"
-        : "light";
+        : "light_protanopia";
 
     // mount 시 초기 테마를 다시 한 번 동기화
     setTheme(getTheme());

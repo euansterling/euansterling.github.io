@@ -1,3 +1,5 @@
+# euansterling.github.io
+
 [satnaing/astro-paper](https://github.com/satnaing/astro-paper)를 포크해서 만들었습니다.
 
 [![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1356898632249991861)
