@@ -449,7 +449,7 @@ git status
 > nothing to commit, working tree clean
 
 # 로컬 main으로 병합
- # [!code highlight:3]
+# [!code highlight:3]
 git checkout main
 git pull origin main
 git merge update/astro-paper
@@ -478,6 +478,26 @@ ncu -i
 ```
 
 </div>
+
+#### Add a website property to Search Console
+
+https://github.com/satnaing/astro-paper?tab=readme-ov-file#google-site-verification-optional
+
+1. Google Search Console/ URL prefix
+
+- 사이트주소 https://_username_.github.io/ 입력
+- Verify ownership : HTML meta tag/ `content` 값을 복사하여 `.env` 파일 만들기
+  ```txt file=.env
+  <!-- [!code ++] -->
+  PUBLIC_GOOGLE_SITE_VERIFICATION=
+  ```
+- `git add .env -f`
+
+2. Test (며칠 후)
+
+- https://search.google.com/search-console
+- Google Rich Results Test, https://search.google.com/test/rich-results
+- Lighthouse - PageSpeed Insights, https://pagespeed.web.dev/
 
 ---
 
@@ -561,4 +581,4 @@ https://github.com/giscus/giscus/blob/main/README.ko.md \
 
 _ref._
 
-- _Erison Silva, Update frontend theme using git, 2025.6, [https://blog.erison.work/posts/update-frontend-theme-using-git/#convert-all-commits-into-one](https://blog.erison.work/posts/update-frontend-theme-using-git/#convert-all-commits-into-one)_
+- _Erison Silva, Update frontend theme using git, 2025.6, [https://blog.erison.work/posts/update-frontend-theme-using-git/](https://blog.erison.work/posts/update-frontend-theme-using-git/)_

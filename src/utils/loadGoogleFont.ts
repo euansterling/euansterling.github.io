@@ -36,11 +36,23 @@ async function loadGoogleFonts(
 > {
   const fontsConfig = [
     {
-      name: "Gowun Batang",
-      font: "Gowun+Batang",
+      name: "Noto Serif KR",
+      font: "Noto+Serif+KR",
       weight: 400,
       style: "normal",
     },
+    {
+      name: "Noto Serif KR",
+      font: "Noto+Serif+KR",
+      weight: 600,
+      style: "normal",
+    },
+    // {
+    //   name: "IBM Plex Mono",
+    //   font: "IBM+Plex+Mono",
+    //   weight: 400,
+    //   style: "normal",
+    // },
     // {
     //   name: "IBM Plex Mono",
     //   font: "IBM+Plex+Mono",
